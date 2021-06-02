@@ -1,0 +1,144 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Open Sans', sans-serif;
+}
+h3 {
+  color: rgba(255,255,255);
+  margin-bottom: .75rem;
+}
+p {
+  font-size: .9rem;
+}
+label {
+  font-size: small;
+  color: rgb(255,255,255);
+}
+body {
+  background: rgb(7,13,25);
+}
+.navbar {
+  width: 100%;
+  color: rgb(155,155,155);
+  background: rgb(12,20,39);
+  border-bottom: 1px solid rgb(23,35,64);
+  margin-bottom: 1.5rem;
+}
+.navbar > .container {
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.navbar-brand {
+  text-decoration: none;
+  font-weight: bold;
+  color: rgb(255,255,255);
+}
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+.input-data > form {
+  border: 1px solid rgb(23,35,64);
+  border-radius: .25rem;
+  color: rgb(115,115,115);
+  padding: .5rem .75rem;
+  margin-bottom: 1rem;
+  display: flex;
+  flex-flow: column wrap;
+  background: rgb(12,20,39);
+}
+.input-data > form > label {
+  margin-bottom: .5rem;
+}
+.input-data .checkbox {
+  margin-bottom: 1.5rem;
+}
+.input-data .button {
+  max-width: 15rem;
+  align-self: flex-start;
+  margin-bottom: .25rem;
+}
+.input-data .form-input {
+  margin-bottom: 1rem;
+}
+.input-data.hide {
+  display: none;
+}
+.list-buku {
+  border: 1px solid rgb(115,115,115);
+  border-radius: .25rem;
+  color: rgb(115,115,115);
+  padding: .5rem .75rem;
+  margin-bottom: 1rem;
+}
+.buku {
+  color: rgb(200,200,200);
+  line-height: 2;
+}
+.buku:not(:last-child) {
+  border-bottom: 1px solid rgb(115,115,115);
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+}
+.buku .button {
+  font-size: small;
+  padding: .3rem .5rem;
+  color: rgb(255,255,255);
+  text-shadow: 0px 1px 2px rgb(0,0,0);
+  margin-right: .25rem;
+}
+.form-input {
+  max-width: 400px;
+  outline: none;
+  border-radius: .25rem;
+  border: 1px solid rgb(23,35,64);
+  padding: .5rem .75rem;
+  background: rgb(12,20,39);
+  color: rgb(255,255,255);
+}
+.form-input:focus {
+  border-color: rgb(114,124,245);
+}
+.form-input::placeholder {
+  color: rgb(200,200,200);
+}
+.button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  padding: .5rem .75rem;
+  border-radius: .25rem;
+}
+.button-primary {
+  background: rgb(114,124,245);
+  color: rgb(255,255,255);
+}
+.button-danger {
+  background: rgb(255,51,102);
+}
+.button-warning {
+  background: rgb(251,188,6);
+}
+.button-success {
+  background: rgb(16,183,89);
+}
+.checkbox {
+  display: flex;
+  font-size: small;
+  align-items: center;
+}
+.container {
+  max-width: 720px;
+  margin-left: 1.5rem;
+  margin-right: 1.5rem;
+}
+@media(min-width:768px) {
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
