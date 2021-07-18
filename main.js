@@ -4,16 +4,16 @@ let books = [];
 window.addEventListener('load', () => {
   books = JSON.parse(localStorage.getItem('book')) || [], updateUI(books);
   
-  $('form').addEventListener('submit', addBook)
+  $('form').onsubmit = addBook;
   
-  $('.toolbar>.form-input').addEventListener('change', searchData)
+  $('.toolbar>.form-input').onchange = searchData;
   
-  $('#isComplete').addEventListener('click', (e) => {
+  $('#isComplete').onclick = (e) => {
     $('form>button').innerText = e.target.checked ? 'Simpan as sudah dibaca' : 'Simpan as belum dibaca';
-  });
+  };
   
-  $('#tambahBuku').addEventListener('click', () => {
-    const isEdit = $('form').id;
+  $('#tambahBuku').onclick = () => {
+    const isEdit  = $('form').id;
     const isShown = !$('.input-data').classList.contains('hide');
     if(isShown && isEdit) {
       if(confirm('Yakin gak jadi edit data?')) {
@@ -24,24 +24,24 @@ window.addEventListener('load', () => {
     } else {
       $('.input-data').classList.toggle('hide');
     }
-  });
+  };
 });
 
 
 function updateUI(books) {
-  const finished = $('.dah-dibaca'), 
+  const finished   = $('.dah-dibaca'), 
         unfinished = $('.lom-dibaca');
         
   finished.innerHTML = '', unfinished.innerHTML = '';
   
   for(let book of books) {
-    let item = $new('div', { id: book.id, css: ['buku'] });
-    let title = $new('h4', { text: `${book.title}` });
+    let item   = $new('div', { id: book.id, css: ['buku'] });
+    let title  = $new('h4', { text: `${book.title}` });
     let author = $new('p', { text: `Penulis: ${book.author}` });
-    let year = $new('p', { text: `Tahun: ${book.year}` });
-    let group = $new('button', { css: ['button', 'button-success'], text: `${ book.isComplete ? 'Belum selesai' : 'Udah dibaca'}`, action: moveGroup });
+    let year   = $new('p', { text: `Tahun: ${book.year}` });
+    let group  = $new('button', { css: ['button', 'button-success'], text: `${ book.isComplete ? 'Belum selesai' : 'Udah dibaca'}`, action: moveGroup });
     let remove = $new('button', { css: ['button', 'button-danger'], text: 'Hapus', action: removeBook });
-    let edit = $new('button', { css: ['button', 'button-warning'], text: 'Edit', action: editBook });
+    let edit   = $new('button', { css: ['button', 'button-warning'], text: 'Edit', action: editBook });
     
     [title, author, year, group, remove, edit].forEach(e => {
       item.appendChild(e);
@@ -57,7 +57,7 @@ function updateUI(books) {
 
 function moveGroup(e) {
   const position = books.findIndex(i => i.id == e.target.parentNode.id);
-  books[position].isComplete = books[position].isComplete ? false : true;
+  books[position].isComplete = !books[position].isComplete;
   saveData();
   updateUI(books);
 }
@@ -76,9 +76,9 @@ function removeBook(e) {
 function editBook(e) {
   const position = books.findIndex(i => i.id == e.target.parentNode.id);
   
-  $('#title').value = books[position].title;
+  $('#title').value  = books[position].title;
   $('#author').value = books[position].author;
-  $('#year').value = books[position].year;
+  $('#year').value   = books[position].year;
   $('#isComplete').checked = books[position].isComplete;
   
   $('form').id = position;
@@ -103,9 +103,9 @@ function addBook() {
   }
   
   if(position) {
-    books[position].title = model.title;
+    books[position].title  = model.title;
     books[position].author = model.author;
-    books[position].year = model.year;
+    books[position].year   = model.year;
     books[position].isComplete = model.isComplete;
   } else {
     books.push(model);
